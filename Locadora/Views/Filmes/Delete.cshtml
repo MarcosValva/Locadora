@@ -1,0 +1,62 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-white text-center mb-4">Deletar Filme</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <h4 class="text-white">Você tem certeza que deseja deletar?</h4>
+            <hr class="border-light">
+
+            <!-- Informações do Filme -->
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Titulo)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Genero)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Genero)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AnoLancamento)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AnoLancamento)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Preco)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Diretor)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Diretor.Name)
+                </dd>
+            </dl>
+
+            <!-- Botões de Confirmação -->
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="FilmeId" />
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Deletar -->
+                    <input type="submit" value="Deletar" class="btn btn-danger btn-sm w-48" />
+
+                    <!-- Botão Voltar para Lista -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

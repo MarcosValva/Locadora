@@ -1,0 +1,55 @@
+﻿@model Locadora.Models.Cliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-white text-center mb-4">Detalhes do Cliente</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <h4 class="text-white">Informações do Cliente</h4>
+            <hr class="border-light">
+
+            <!-- Nome -->
+            <div class="row mb-3 p-2 rounded">
+                <div class="col-md-2">
+                    <strong>Nome:</strong>
+                </div>
+                <div class="col-md-10">
+                    <p>@Html.DisplayFor(model => model.Nome)</p>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="row mb-3 p-2 rounded">
+                <div class="col-md-2">
+                    <strong>Email:</strong>
+                </div>
+                <div class="col-md-10">
+                    <p>@Html.DisplayFor(model => model.Email)</p>
+                </div>
+            </div>
+
+            <!-- Telefone -->
+            <div class="row mb-3 p-2 rounded">
+                <div class="col-md-2">
+                    <strong>Telefone:</strong>
+                </div>
+                <div class="col-md-10">
+                    <p>@Html.DisplayFor(model => model.Telefone)</p>
+                </div>
+            </div>
+
+            <!-- Botões de Navegação -->
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botão Editar -->
+                <a asp-action="Edit" asp-route-id="@Model?.ClienteId" class="btn btn-warning btn-sm w-48">Editar</a>
+
+                <!-- Botão Voltar -->
+                <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model Locadora.Models.Cliente
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1 class="text-white text-center mb-4">Editar Cliente</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark">
+            <h4 class="text-white">Informações do Cliente</h4>
+            <hr class="border-light" />
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="ClienteId" />
+
+                <!-- Nome -->
+                <div class="form-group mb-3">
+                    <label asp-for="Nome" class="control-label text-white"></label>
+                    <input asp-for="Nome" class="form-control" placeholder="Enter Name" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label text-white"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Telefone -->
+                <div class="form-group mb-3">
+                    <label asp-for="Telefone" class="control-label text-white"></label>
+                    <input asp-for="Telefone" class="form-control" placeholder="Enter Phone Number" />
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>
+
+                <!-- Botões Salvar e Voltar -->
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Salvar -->
+                    <input type="submit" value="Salvar" class="btn btn-success btn-sm w-48" />
+
+                    <!-- Botão Voltar -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

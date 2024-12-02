@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Locadora.Models.Locacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white text-center mb-4">Lista de Locações</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <div class="mb-4">
+                <h4 class="text-white">Locações</h4>
+                <!-- Botão Nova Locação agora está abaixo -->
+                <a asp-action="Create" class="btn btn-success btn-sm mt-2">Nova Locação</a>
+            </div>
+
+            <table class="table table-striped text-white">
+                <thead>
+                    <tr>
+                        <th class="text-white text-center">Data da Locação</th>
+                        <th class="text-white text-center">Data da Devolução</th>
+                        <th class="text-white text-center">@Html.DisplayNameFor(model => model.Cliente)</th>
+                        <th class="text-white text-center">@Html.DisplayNameFor(model => model.Filme)</th>
+                        <th class="text-white text-center">Preço do Filme</th>
+                        <th class="text-white text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.DataLocacao)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.DataDevolucao)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.Cliente.Nome)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.Filme.Titulo)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.Filme.Preco)</td>
+                            <td class="text-center">
+                                <div class="btn-group d-flex justify-content-around">
+                                    <a asp-action="Edit" asp-route-id="@item.LocacaoId" class="btn btn-warning btn-sm mr-3">Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.LocacaoId" class="btn btn-info btn-sm mr-3">Detalhes</a>
+                                    <a asp-action="Delete" asp-route-id="@item.LocacaoId" class="btn btn-danger btn-sm">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

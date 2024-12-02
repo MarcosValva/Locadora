@@ -1,0 +1,69 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-white text-center mb-4">Cadastrar Filme</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <h4 class="text-white">Informações do Filme</h4>
+            <hr class="border-light" />
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Título -->
+                <div class="form-group mb-3">
+                    <label asp-for="Titulo" class="control-label text-white"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <!-- Gênero -->
+                <div class="form-group mb-3">
+                    <label asp-for="Genero" class="control-label text-white"></label>
+                    <input asp-for="Genero" class="form-control" />
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
+
+                <!-- Ano de Lançamento -->
+                <div class="form-group mb-3">
+                    <label asp-for="AnoLancamento" class="control-label text-white"></label>
+                    <input asp-for="AnoLancamento" class="form-control" />
+                    <span asp-validation-for="AnoLancamento" class="text-danger"></span>
+                </div>
+
+                <!-- Diretor -->
+                <div class="form-group mb-3">
+                    <label asp-for="Diretor" class="control-label text-white"></label>
+                    <select asp-for="DiretorId" class="form-control" asp-items="ViewBag.DiretorId"></select>
+                </div>
+
+                <!-- Preço -->
+                <div class="form-group mb-3">
+                    <label asp-for="Preco" class="control-label text-white"></label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+
+                <!-- Botões Salvar e Voltar -->
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Criar -->
+                    <input type="submit" value="Criar" class="btn btn-success btn-sm w-48" />
+
+                    <!-- Botão Voltar para a Lista -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

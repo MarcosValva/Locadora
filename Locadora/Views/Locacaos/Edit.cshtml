@@ -1,0 +1,60 @@
+﻿@model Locadora.Models.Locacao
+
+@{
+    ViewData["Title"] = "Editar Locação";
+}
+
+<h1 class="text-white text-center mb-4">Editar Locação</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <h4 class="text-white">Informações da Locação</h4>
+            <hr class="border-light">
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Cliente -->
+                <div class="form-group mb-3">
+                    <label asp-for="ClienteId" class="control-label text-white"></label>
+                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                    <span asp-validation-for="ClienteId" class="text-danger"></span>
+                </div>
+
+                <!-- Filme -->
+                <div class="form-group mb-3">
+                    <label asp-for="FilmeId" class="control-label text-white"></label>
+                    <select asp-for="FilmeId" class="form-control" asp-items="ViewBag.FilmeId"></select>
+                    <span asp-validation-for="FilmeId" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Locação -->
+                <div class="form-group mb-3">
+                    <label asp-for="DataLocacao" class="control-label text-white"></label>
+                    <input asp-for="DataLocacao" class="form-control" />
+                    <span asp-validation-for="DataLocacao" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Devolução -->
+                <div class="form-group mb-3">
+                    <label asp-for="DataDevolucao" class="control-label text-white"></label>
+                    <input asp-for="DataDevolucao" class="form-control" />
+                    <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+                </div>
+
+                <!-- Botões -->
+                <div class="d-flex justify-content-between mt-4">
+                    <input type="submit" value="Salvar" class="btn btn-success btn-sm w-48" />
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

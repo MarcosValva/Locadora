@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Locadora</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        /* Estilo para o fundo do body */
+        body {
+            background-color: #1c1c1c; /* Cor mais escura */
+            color: white; /* Para o texto ficar visível */
+        }
+
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: #333; /* Fundo mais escuro no cabeçalho */
+            padding: 10px 0;
+        }
+
+            header .navbar {
+                margin: 0;
+            }
+
+        /* Estilo para a navegação */
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+            .navbar-brand:hover, .nav-link:hover {
+                color: #ffcc00 !important;
+            }
+
+            /* Estilo para a imagem */
+            .navbar-brand img {
+                height: 80px; /* Tamanho da imagem */
+                margin-right: 10px; /* Espaço entre a imagem e o texto */
+            }
+
+        /* Estilo para o texto "Catálogo de Filmes:" */
+        .catalogo-titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        /* Estilo para as imagens dos filmes */
+        .film-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espaço entre as imagens */
+            margin-top: 20px;
+        }
+
+            .film-images img {
+                width: 150px; /* Definindo o tamanho das imagens */
+                height: 225px; /* Ajustando a altura das imagens */
+                object-fit: cover; /* Mantendo a proporção da imagem */
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <div class="container">
+                <!-- Adicionando a imagem antes do texto "Locadora" -->
+                <a class="navbar-brand" href="#">
+                    <img src="https://media.discordapp.net/attachments/1281376063058088039/1312534468426469466/Design_sem_nome_1.png?ex=674cd87a&is=674b86fa&hm=d7fe4b254112a2254a5d8cdfbcbfb0048bd5ea72f508c479a2304f6e1be6f497&=&format=webp&quality=lossless&width=465&height=465" alt="Logo" />
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Locadora</a>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Filmes" asp-action="Index">Filmes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Locacaos" asp-action="Index">Locações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Diretors" asp-action="Index">Diretores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <!-- Verificar se RenderBody() foi chamado -->
+        @if (IsSectionDefined("body"))
+        {
+            @RenderSection("body")
+        }
+        else
+        {
+            @RenderBody()  <!-- Este é o conteúdo da página principal -->
+        }
+
+        <!-- Aqui será a seção do catálogo de filmes, se definida na página -->
+        @RenderSection("catalogo", false)
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

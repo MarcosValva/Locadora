@@ -1,0 +1,68 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-white text-center mb-4">Detalhes do Filme</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark">
+            <h4 class="text-white">Informações do Filme</h4>
+            <hr class="border-light" />
+
+            <dl class="row">
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Titulo)
+                </dd>
+
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Genero)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Genero)
+                </dd>
+
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.AnoLancamento)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.AnoLancamento)
+                </dd>
+
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Preco)
+                </dd>
+
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Diretor)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Diretor.Name)
+                </dd>
+            </dl>
+
+            <!-- Botões Editar e Voltar -->
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botão Editar -->
+                <a asp-action="Edit" asp-route-id="@Model?.FilmeId" class="btn btn-warning btn-sm w-48">Editar</a>
+
+                <!-- Botão Voltar -->
+                <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

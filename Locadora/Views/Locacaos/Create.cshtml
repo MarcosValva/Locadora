@@ -1,0 +1,63 @@
+﻿@model Locadora.Models.Locacao
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-white text-center mb-4">Nova Locação</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <h4 class="text-white">Informações da Locação</h4>
+            <hr class="border-light" />
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Cliente -->
+                <div class="form-group mb-3">
+                    <label asp-for="Cliente" class="control-label text-white"></label>
+                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                    <span asp-validation-for="ClienteId" class="text-danger"></span>
+                </div>
+
+                <!-- Filme -->
+                <div class="form-group mb-3">
+                    <label asp-for="Filme" class="control-label text-white"></label>
+                    <select asp-for="FilmeId" class="form-control" asp-items="ViewBag.FilmeId"></select>
+                    <span asp-validation-for="FilmeId" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Locação -->
+                <div class="form-group mb-3">
+                    <label asp-for="DataLocacao" class="control-label text-white"></label>
+                    <input asp-for="DataLocacao" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="DataLocacao" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Devolução -->
+                <div class="form-group mb-3">
+                    <label asp-for="DataDevolucao" class="control-label text-white"></label>
+                    <input asp-for="DataDevolucao" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+                </div>
+
+                <!-- Botões Salvar e Voltar -->
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Criar -->
+                    <input type="submit" value="Criar" class="btn btn-success btn-sm w-48" />
+
+                    <!-- Botão Voltar -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

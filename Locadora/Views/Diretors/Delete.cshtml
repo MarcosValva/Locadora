@@ -1,0 +1,51 @@
+﻿@model Locadora.Models.Diretor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-white text-center mb-4">Deletar Diretor</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark">
+            <h4 class="text-white">Informações do Diretor</h4>
+            <hr class="border-light" />
+
+            <dl class="row">
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.DataNascimento)
+                </dd>
+                <dt class="col-sm-2 text-white">
+                    @Html.DisplayNameFor(model => model.Nacionalidade)
+                </dt>
+                <dd class="col-sm-10 text-white">
+                    @Html.DisplayFor(model => model.Nacionalidade)
+                </dd>
+            </dl>
+
+            <h3 class="text-white">Você tem certeza que deseja excluir?</h3>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <!-- Botões de Delete e Voltar -->
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Delete -->
+                    <input type="submit" value="Deletar" class="btn btn-danger btn-sm w-48" />
+
+                    <!-- Botão Voltar -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

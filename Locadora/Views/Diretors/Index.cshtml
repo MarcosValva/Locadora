@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Locadora.Models.Diretor>
+
+@{
+    ViewData["Title"] = "Lista de Diretores";
+}
+
+<h1 class="text-white text-center mb-4">Lista de Diretores</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark text-white">
+            <div class="mb-4">
+                <h4 class="text-white">Diretores</h4>
+                <!-- Botão Criar Novo Diretor -->
+                <a asp-action="Create" class="btn btn-success btn-sm mt-2">Novo Diretor</a>
+            </div>
+
+            <table class="table table-striped text-white">
+                <thead>
+                    <tr>
+                        <th class="text-white text-center">@Html.DisplayNameFor(model => model.Name)</th>
+                        <th class="text-white text-center">Data de Nascimento</th>
+                        <th class="text-white text-center">@Html.DisplayNameFor(model => model.Nacionalidade)</th>
+                        <th class="text-white text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.DataNascimento)</td>
+                            <td class="text-white text-center">@Html.DisplayFor(modelItem => item.Nacionalidade)</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <!-- Botões Editar, Detalhes e Excluir -->
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm mr-3">Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm mr-3">Detalhes</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

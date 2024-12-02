@@ -1,0 +1,56 @@
+﻿@model Locadora.Models.Diretor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-white text-center mb-4">Cadastrar Novo Diretor</h1>
+
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body bg-dark">
+            <h4 class="text-white">Informações do Diretor</h4>
+            <hr class="border-light" />
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Nome -->
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="control-label text-white"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Digite o nome" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Nascimento -->
+                <div class="form-group mb-3">
+                    <label asp-for="DataNascimento" class="control-label text-white"></label>
+                    <input asp-for="DataNascimento" class="form-control" type="date" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+
+                <!-- Nacionalidade -->
+                <div class="form-group mb-3">
+                    <label asp-for="Nacionalidade" class="control-label text-white"></label>
+                    <input asp-for="Nacionalidade" class="form-control" placeholder="Digite a nacionalidade" />
+                    <span asp-validation-for="Nacionalidade" class="text-danger"></span>
+                </div>
+
+                <!-- Botões Salvar e Voltar -->
+                <div class="d-flex justify-content-between mt-4">
+                    <!-- Botão Salvar -->
+                    <input type="submit" value="Salvar" class="btn btn-success btn-sm w-48" />
+
+                    <!-- Botão Voltar -->
+                    <a asp-action="Index" class="btn btn-secondary btn-sm w-48">Voltar para a Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+@section catalogo {
+    <div class="catalogo-titulo">
+        Catálogo de Filmes:
+    </div>
+
+    <div class="film-images">
+        <img src="https://br.web.img3.acsta.net/c_310_420/pictures/210/049/21004903_20130510170049514.jpg" alt="Filme 1" />
+        <img src="https://storage.googleapis.com/site-minas-tenis-gcp/media/fand3ulh/cartaz-avatar.jpg?width=402&height=503&mode=max" alt="Filme 2" />
+        <img src="https://img.elo7.com.br/product/zoom/1D1DA32/poster-marvel-pantera-negra-lo003-tamanho-90-x-0-cm-quadro-pantera-negra.jpg" alt="Filme 3" />
+        <img src="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGX0JPMXX/image?locale=pt-br&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg" alt="Filme 4" />
+    </div>
+}
+
+<style>
+    .film-images img {
+        width: 260px;  /* Aumentando a largura */
+        height: 350px; /* Aumentando a altura */
+        object-fit: cover; /* Garantir que a imagem se ajuste corretamente */
+    }
+</style>
